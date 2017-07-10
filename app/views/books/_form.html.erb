@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a Category") %>
+  </div>
+  
+  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :book_title %>
   </div>

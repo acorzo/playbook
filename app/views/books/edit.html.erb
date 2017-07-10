@@ -1,6 +1,29 @@
 <h1>Editing Book</h1>
 
-<%= render 'form', book: @book %>
+<%= form_with(model: @book) do |form| %>
 
+  <div class="field">
+    <%= form.select(:category_id, @categories) %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :book_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :book_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author, id: :book_author %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
 <%= link_to 'Show', @book %> |
 <%= link_to 'Back', books_path %>
