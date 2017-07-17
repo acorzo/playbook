@@ -6,11 +6,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <%= link_to "Home", root_path, class:"nav-link" %>
+        <span class="sr-only">(current)</span>
       </li>
       <li class="nav-item">
         <%= link_to "Book Review", root_path, class:"nav-link" %>
       </li>
+      
       <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>
       </li>
@@ -23,9 +25,9 @@
           Categorias
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <% Category.all.each do |category|%>
+            <%= link_to category.name, books_path(category: category.name), class:"dropdown-item"  %>
+          <% end %>
         </div>
       </div>
       
