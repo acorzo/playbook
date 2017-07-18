@@ -5,24 +5,24 @@
 </p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @book.title %>
+  <strong>Title:</strong> <%= @book.title %>
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @book.category.name %>
+  <strong>Category:</strong> <%= @book.category.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @book.description %>
+  <strong>Description:</strong> <%= @book.description %>
 </p>
 
 <p>
-  <strong>Author:</strong>
-  <%= @book.author %>
+  <strong>Author:</strong> <%= @book.author %>
 </p>
+
+<div>
+  <%= render @book.reviews %>
+</div>
 
 <% if user_signed_in? %>
 	<% if @book.user_id == current_user.id %>
@@ -30,3 +30,5 @@
 		<%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
 	<% end %>
 <% end %>
+
+<%= link_to "Add Review", new_book_review_path(@book) %>

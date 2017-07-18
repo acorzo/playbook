@@ -1,0 +1,12 @@
+<%= form_with(model: [ @book, Review.new ]) do |form| %>
+ <div class="container">
+  <p>
+    Rating:<%= form.number_field :rating  %>
+  </p>
+  <p>
+    Comentario:<%= form.text_field :comment  %>
+  </p>
+  
+  <%= form.button :submit  %>
+<% end %>
+</div>
