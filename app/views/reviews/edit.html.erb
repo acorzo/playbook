@@ -1,9 +1,19 @@
 <h2>Edit Review</h2>
 <%= form_with(model: [ @book, @review ]) do |form| %>
  <div class="container">
-  <p> Rating:<%= form.number_field :rating  %> </p>
+  <!--<p> Rating:<%= form.number_field :rating  %> </p>-->
+  <div id="rating-form"> 
+				<label>Rating</label>
+			</div>
   <p> Comentario:<%= form.text_field :comment  %> </p>
   
   <%= form.button :submit  %>
 <% end %>
 </div>
+
+<script>
+	$('#rating-form').raty({
+		path: '/assets/',
+		scoreName: 'review[rating]'
+	});
+</script>
